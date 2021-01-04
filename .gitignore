@@ -28,6 +28,9 @@ coverage.txt
 # macOS specific
 .DS_Store
 
+# idea
+.idea
+
 # solc
 solc*
 

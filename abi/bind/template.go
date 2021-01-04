@@ -427,7 +427,7 @@ var (
 				it.Event.Raw = log
 				return true
 
-			case err := <-it.sub.Err():
+			case err := <-it.sub.ErrorInfo():
 				it.done = true
 				it.fail = err
 				return it.Next()
@@ -495,12 +495,12 @@ var (
 
 						select {
 						case sink <- event:
-						case err := <-sub.Err():
+						case err := <-sub.ErrorInfo():
 							return err
 						case <-quit:
 							return nil
 						}
-					case err := <-sub.Err():
+					case err := <-sub.ErrorInfo():
 						return err
 					case <-quit:
 						return nil

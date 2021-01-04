@@ -265,6 +265,7 @@ func bindBasicTypeGo(kind abi.Type) string {
 	}
 }
 
+
 // bindTypeGo converts solidity types to Go ones. Since there is no clear mapping
 // from all Solidity types to Go ones (e.g. uint17), those that cannot be exactly
 // mapped will use an upscaled type (e.g. BigDecimal).

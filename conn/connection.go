@@ -488,7 +488,7 @@ func (c *Connection) ShhSubscribe(ctx context.Context, channel interface{}, args
 // effect on the subscription after Subscribe has returned.
 //
 // Slow subscribers will be dropped eventually. Connection buffers up to 20000 notifications
-// before considering the subscriber dead. The subscription Err channel will receive
+// before considering the subscriber dead. The subscription ErrorInfo channel will receive
 // ErrSubscriptionQueueOverflow. Use a sufficiently large buffer on the channel or ensure
 // that the channel usually has at least one reader to prevent this issue.
 func (c *Connection) Subscribe(ctx context.Context, namespace string, channel interface{}, args ...interface{}) (*ClientSubscription, error) {

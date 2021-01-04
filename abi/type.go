@@ -234,6 +234,8 @@ func (t Type) String() (out string) {
 }
 
 func (t Type) pack(v reflect.Value) ([]byte, error) {
+	fmt.Println("******")
+	fmt.Println("t.T",t.T==FixedBytesTy,"  v.kind",v.Kind(), " v:",v)
 	// dereference pointer first if it's a pointer
 	v = indirect(v)
 	if err := typeCheck(t, v); err != nil {

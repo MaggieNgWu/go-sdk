@@ -21,6 +21,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
+	"reflect"
 
 	"github.com/ethereum/go-ethereum/common"
 )
@@ -63,6 +64,9 @@ func (abi *ABI) SetSMCrypto() {
 // Method ids are created from the first 4 bytes of the hash of the
 // methods string signature. (signature = baz(uint32,string32))
 func (abi ABI) Pack(name string, args ...interface{}) ([]byte, error) {
+	for _, abiArg := range args {
+		fmt.Println("AAAAA ",reflect.TypeOf(abiArg),reflect.ValueOf(abiArg))
+	}
 	// Fetch the ABI of the requested method
 	if name == "" {
 		// constructor
